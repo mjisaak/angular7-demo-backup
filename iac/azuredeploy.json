@@ -3,11 +3,11 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"webAppName": {
-			"defaultValue": "angulariacdemo",
+			"defaultValue": "[concat('angulardemo-', uniqueString())]",
 			"type": "string"
 		},
 		"appServicePlanName": {
-			"defaultValue": "angulariacaspQQ",
+      "defaultValue": "[concat('demoserviceplan-', uniqueString())]",
 			"type": "string"
 		}
 	},
@@ -25,14 +25,14 @@
 			"kind": "linux",
 			"name": "[parameters('appServicePlanName')]",
 			"apiVersion": "2016-09-01",
-			"location": "West Europe",
+			"location": "[resourceGroup().location]",
 			"dependsOn": []
 		}, {
 			"type": "Microsoft.Web/sites",
 			"kind": "app,linux",
 			"name": "[parameters('webAppName')]",
 			"apiVersion": "2016-08-01",
-			"location": "West Europe",
+			"location": "[resourceGroup().location]",
 			"properties": {
 				"siteConfig": {
 					"linuxFxVersion": "node|10.10"
