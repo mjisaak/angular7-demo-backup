@@ -3,8 +3,11 @@
 	"contentVersion": "1.0.0.0",
 	"parameters": {
 		"webAppName": {
-			"defaultValue": "[concat('angulardemo-', uniqueString())]",
-			"type": "string"
+      "type": "string",
+      "metadata": {
+        "defaultValue":"[uniqueString('angulardemo', resourceGroup().id)]",
+        "description": "The name of the web app"
+      }       
 		},
 		"appServicePlanName": {
       "defaultValue": "[concat('demoserviceplan-', uniqueString())]",
