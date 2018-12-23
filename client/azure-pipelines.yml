@@ -19,9 +19,11 @@ steps:
     npm install -g @angular/cli
     npm install
     ng build --prod
+  workingDirectory: 'client'
   displayName: 'npm install and build'
 
-- task: PublishPipelineArtifact@0
+- task: PublishBuildArtifacts@1
   inputs:
     artifactName: 'demoapp'
-    targetPath: 'dist/demoapp'
+    pathtoPublish: 'client/dist/demoapp'
+    publishLocation: 'Container'
