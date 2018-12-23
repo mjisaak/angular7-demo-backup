@@ -1,0 +1,15 @@
+body {
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100vw;
+    max-height: 100vh;
+    display: flex;
+    min-width: 100vw;
+    min-height: 100vh;
+    margin: 0;
+  
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif;
+    background-color: lightblue;
+    user-select: none;
+    line-height: 1.5;
+  }
