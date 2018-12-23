@@ -24,5 +24,6 @@ steps:
 
 - task: PublishBuildArtifacts@0
   inputs:
-    artifactName: 'demoapp'
-    targetPath: 'client/dist/demoapp'
+    ArtifactName: 'demoapp'
+    PathtoPublish: 'client/dist/demoapp'
+    PublishLocation: Container
