@@ -1,58 +1,47 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-      "webAppName": {
-          "defaultValue": "angulariacdemo",
-          "type": "String"
-      },
-      "appServicePlanName": {
-          "defaultValue": "angulariacasp",
-          "type": "String"
-      }
-  },
-  "variables": {},
-  "resources": [
-      {
-          "comments": "Generalized from resource: '/subscriptions/be625834-5617-4911-85cb-e8a378059957/resourceGroups/angulariacdemo/providers/Microsoft.Web/serverfarms/angulariacasp'.",
-          "type": "Microsoft.Web/serverfarms",
-          "sku": {
-              "name": "B1",
-              "tier": "Basic",
-              "size": "B1",
-              "family": "B",
-              "capacity": 1
-          },
-          "kind": "linux",
-          "name": "[parameters('appServicePlanName')]",
-          "apiVersion": "2016-09-01",
-          "location": "West Europe",
-          "dependsOn": []
-      },
-      {
-          "type": "Microsoft.Web/sites",
-          "kind": "app,linux",
-          "name": "[parameters('webAppName')]",
-          "apiVersion": "2016-08-01",
-          "location": "West Europe",
-          "properties": {
-            "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
-          },
-          "dependsOn": [
-              "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
-          ]
-      },
-      {
-          "type": "Microsoft.Web/sites/config",
-          "name": "[concat(parameters('webAppName'), '/web')]",
-          "apiVersion": "2016-08-01",
-          "location": "West Europe",
-          "properties": {
-              "linuxFxVersion": "NODE|10.10"
-          },
-          "dependsOn": [
-              "[resourceId('Microsoft.Web/sites', parameters('webAppName'))]"
-          ]
-      }
-  ]
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"webAppName": {
+			"defaultValue": "angulariacdemo",
+			"type": "string"
+		},
+		"appServicePlanName": {
+			"defaultValue": "angulariacaspQQ",
+			"type": "string"
+		}
+	},
+	"variables": {},
+	"resources": [{
+			"comments": "Generalized from resource: '/subscriptions/be625834-5617-4911-85cb-e8a378059957/resourceGroups/angulariacdemo/providers/Microsoft.Web/serverfarms/angulariacasp'.",
+			"type": "Microsoft.Web/serverfarms",
+			"sku": {
+				"name": "B1",
+				"tier": "Basic",
+				"size": "B1",
+				"family": "B",
+				"capacity": 1
+			},
+			"kind": "linux",
+			"name": "[parameters('appServicePlanName')]",
+			"apiVersion": "2016-09-01",
+			"location": "West Europe",
+			"dependsOn": []
+		}, {
+			"type": "Microsoft.Web/sites",
+			"kind": "app,linux",
+			"name": "[parameters('webAppName')]",
+			"apiVersion": "2016-08-01",
+			"location": "West Europe",
+			"properties": {
+				"siteConfig": {
+					"linuxFxVersion": "node|10.10"
+				},
+				"serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Web/serverfarms', parameters('appServicePlanName'))]"
+			]
+		}
+	]
 }
