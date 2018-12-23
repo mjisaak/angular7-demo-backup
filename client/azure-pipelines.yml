@@ -22,7 +22,7 @@ steps:
   workingDirectory: 'client'
   displayName: 'npm install and build'
 
-- task: PublishPipelineArtifact@0
+- task: PublishBuildArtifacts@0
   inputs:
     artifactName: 'demoapp'
     targetPath: 'client/dist/demoapp'
