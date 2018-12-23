@@ -22,8 +22,8 @@ steps:
   workingDirectory: 'client'
   displayName: 'npm install and build'
 
-- task: PublishBuildArtifacts@0
+- task: PublishBuildArtifacts@1
   inputs:
-    ArtifactName: 'demoapp'
-    PathtoPublish: 'client/dist/demoapp'
-    PublishLocation: Container
+    artifactName: 'demoapp'
+    pathtoPublish: 'client/dist/demoapp'
+    publishLocation: 'Container'
