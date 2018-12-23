@@ -11,7 +11,6 @@
 	},
 	"variables": {},
 	"resources": [{
-			"comments": "Generalized from resource: '/subscriptions/be625834-5617-4911-85cb-e8a378059957/resourceGroups/angulariacdemo/providers/Microsoft.Web/serverfarms/angulariacasp'.",
 			"type": "Microsoft.Web/serverfarms",
 			"sku": {
 				"name": "B1",
