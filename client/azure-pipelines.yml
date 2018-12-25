@@ -29,6 +29,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    artifactName: 'demoapp'
-    pathtoPublish: 'client/dist/demoapp'
+    artifactName: 'angularapp'
+    pathtoPublish: 'client/dist/*'
     publishLocation: 'Container'
